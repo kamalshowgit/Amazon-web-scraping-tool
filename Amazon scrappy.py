@@ -79,10 +79,10 @@ def scrape_amazon_data():
             product_url = 'https://www.amazon.in' + product.find('a', class_='a-link-normal').get('href')
             product_listing_data.append({
                 'Product URL': product_url,
-                'Product Name': product.find('span', class_='a-size-medium').text.strip(),
-                'Product Price': product.find('span', class_='a-price-whole').text.strip(),
-                'Rating': product.find('span', {'class': 'a-icon-alt'}).text.split()[0],
-                'Number of Reviews': product.find('span', {'class': 'a-size-base'}).text.split()[0]
+                'Product Name': product.find('span', class_='a-size-medium').string.strip(),
+                'Product Price': product.find('span', class_='a-price-whole').string.strip(),
+                'Rating': product.find('span', {'class': 'a-icon-alt'}).string.split()[0],
+                'Number of Reviews': product.find('span', {'class': 'a-size-base'}).string.split()[0]
             })
 
     for product_data in product_listing_data[:200]:
